@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tic_tac_toe_app/screens/leaderboard.dart';
 import 'package:tic_tac_toe_app/screens/splash.dart';
 
 void main() {
@@ -13,7 +14,7 @@ class TicTacToeApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Tic Tac Toe App',
-      home: Splash(),
+      home: Leaderboard(),
       debugShowCheckedModeBanner: false,
     );
   } // build
