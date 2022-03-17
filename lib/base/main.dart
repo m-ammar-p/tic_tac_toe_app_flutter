@@ -14,6 +14,7 @@ class TicTacToeApp extends StatelessWidget {
     return MaterialApp(
       title: 'Tic Tac Toe App',
       home: Splash(),
+      debugShowCheckedModeBanner: false,
     );
   } // build
 }
