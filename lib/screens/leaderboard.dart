@@ -22,6 +22,7 @@ class Leaderboard extends StatelessWidget {
             Row(
               children: [
                 Icon(Icons.arrow_back_ios,),
+                SizedBox(width: 15,),
 
                 AppText(text: "LEADER", fontSize: 25,
                 fontWeight: FontWeight.w700, color: Color(0XFF0D47A1),
@@ -29,16 +30,14 @@ class Leaderboard extends StatelessWidget {
               ],
             ),
             Container(
-              padding: EdgeInsets.only(left: 23),
+              padding: EdgeInsets.only(left: 38),
               child: AppText(text: "BOARD", fontSize: 35,
                   fontWeight: FontWeight.w700, color: Color(0XFF0D47A1),
                   letterSpacing: 10),
             ),
 
             SizedBox(height: 4,),
-
             Expanded(
-
                 child: ListView.builder(
                     itemCount: leaderboardItemCount.length,
                     itemBuilder: leaderboardItem,

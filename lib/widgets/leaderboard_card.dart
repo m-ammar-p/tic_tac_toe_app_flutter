@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:tic_tac_toe_app/widgets/app_Text.dart';
 import 'package:tic_tac_toe_app/widgets/o.dart';
-import 'package:tic_tac_toe_app/widgets/trophy.dart';
 import 'package:tic_tac_toe_app/widgets/x.dart';
 
 class LeaderboardCard extends StatelessWidget {
@@ -50,7 +49,16 @@ class LeaderboardCard extends StatelessWidget {
             padding: const EdgeInsets.only(right: 19, bottom: 23, top: 23),
             child: Row(
               children: [
-                Trophy(),
+                Container(
+                  height: 52,
+                  width: 52,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage("images/trophy1.png"),
+                      fit: BoxFit.cover
+                    )
+                  ),
+                ),
               ],
             ),
           )
