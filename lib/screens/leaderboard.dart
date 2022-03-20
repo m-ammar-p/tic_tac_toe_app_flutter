@@ -5,7 +5,6 @@ import 'package:tic_tac_toe_app/widgets/app_Text.dart';
 import '../widgets/leaderboard_card.dart';
 
 class Leaderboard extends StatelessWidget {
-
   Leaderboard({Key? key}) : super(key: key);
 
   List<Player> leaderboardItemCount = [];
@@ -24,14 +23,13 @@ class Leaderboard extends StatelessWidget {
             Row(
               children: [
                 GestureDetector(
-                    onTap: () {
-                      Navigator.of(context).pop();
-                    },
-                    child: const Icon(
-                      Icons.arrow_back_ios,
-                    )),
+                  onTap: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: Image.asset("images/back_arrow.png"),
+                ),
                 const SizedBox(
-                  width: 15,
+                  width: 30,
                 ),
                 const AppText(
                   text: "LEADER",
@@ -43,7 +41,7 @@ class Leaderboard extends StatelessWidget {
               ],
             ),
             Container(
-              padding: const EdgeInsets.only(left: 38),
+              padding: const EdgeInsets.only(left: 45),
               child: const AppText(
                   text: "BOARD",
                   fontSize: 35,
