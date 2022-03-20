@@ -1,15 +1,16 @@
 // ignore_for_file: deprecated_member_use
+import 'dart:async';
 import 'dart:math';
 import 'package:flutter/material.dart';
-import 'package:tic_tac_toe_app/model/gamebutton.dart';
 import 'package:tic_tac_toe_app/model/player.dart';
 import 'package:tic_tac_toe_app/screens/leaderboard.dart';
-import 'package:tic_tac_toe_app/screens/winning.dart';
 import 'package:tic_tac_toe_app/widgets/app_Text.dart';
 import 'package:tic_tac_toe_app/widgets/button_leaderboard.dart';
 import 'package:tic_tac_toe_app/widgets/custom_dialog.dart';
+import 'package:tic_tac_toe_app/widgets/gamebutton.dart';
 import 'package:tic_tac_toe_app/widgets/o.dart';
 import 'package:tic_tac_toe_app/widgets/rectangle.dart';
+import 'package:tic_tac_toe_app/widgets/winning_board.dart';
 import 'package:tic_tac_toe_app/widgets/x.dart';
 
 List<Player> playerList = [];
@@ -20,6 +21,7 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  late Timer _timer;
   late List<GameButton> buttonsList;
   var player1;
   var player2;
@@ -70,6 +72,7 @@ class _HomeState extends State<Home> {
       if (winner == -1) {
         if (buttonsList.every((p) => p.text != "")) {
           showDialog(
+            barrierDismissible: false,
               context: context,
               builder: (_) => CustomDialog("Game Tied",
                   "Press the reset button to start again.", resetGame));
@@ -162,24 +165,57 @@ class _HomeState extends State<Home> {
 
     if (winner != -1) {
       if (winner == 1) {
-        showDialog(
-            context: context,
-            builder: (_) => Winning(
-                  title: "Player 1",
-                  callback: resetGame,
-                ));
-
         playerList.add(Player(player: "Player 1", isPlayer1: true));
-      } else {
+
         showDialog(
+            barrierDismissible: false,
             context: context,
-            builder: (_) => Winning(
-                  title: "Player 2",
-                  callback: resetGame,
-                ));
+            builder: (_) {
+              _timer = Timer(const Duration(milliseconds: 1500), () {
+                Navigator.of(context).pop();
+                setState(() {
+                  resetGame();
+                });
+              });
+
+              return const AlertDialog(
+                actions: [
+                  WinningBoard(title: "Player 1"),
+                ],
+                backgroundColor: Color(0XFF0D47A1),
+              );
+            }).then((value) {
+          if (_timer.isActive) {
+            _timer.cancel();
+          }
+        });
+      } else {
         playerList.add(Player(player: "Player 2", isPlayer1: false));
-      }
-    }
+
+        showDialog(
+            barrierDismissible: false,
+            context: context,
+            builder: (_) {
+              _timer = Timer(const Duration(milliseconds: 1500), () {
+                Navigator.of(context).pop();
+                setState(() {
+                  resetGame();
+                });
+              });
+
+              return const AlertDialog(
+                actions: [
+                  WinningBoard(title: "Player 2"),
+                ],
+                backgroundColor: const Color(0XFF0D47A1),
+              );
+            }).then((value) {
+          if (_timer.isActive) {
+            _timer.cancel();
+          }
+        });
+      } // else
+    } // main if
     return winner;
   }
 

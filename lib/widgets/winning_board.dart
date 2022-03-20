@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:tic_tac_toe_app/widgets/app_Text.dart';
 
 class WinningBoard extends StatelessWidget {
-  final title;
+  final String title;
 
-  const WinningBoard({Key? key, this.title}) : super(key: key);
+  const WinningBoard({Key? key, required this.title}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
