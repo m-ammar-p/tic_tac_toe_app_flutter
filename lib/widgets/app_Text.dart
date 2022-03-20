@@ -19,17 +19,13 @@ class AppText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Text(
-        text,
-        style: GoogleFonts.poppins(
-          textStyle: TextStyle(
+    return Text(text,
+      style: GoogleFonts.poppins(
+        textStyle: TextStyle(
             fontSize: fontSize,
             fontWeight: fontWeight,
             color: color,
-            letterSpacing: letterSpacing
-          ),
-        ),
+            letterSpacing: letterSpacing),
       ),
     );
   }

@@ -5,26 +5,25 @@ import 'package:tic_tac_toe_app/widgets/o.dart';
 import 'package:tic_tac_toe_app/widgets/x.dart';
 
 class Splash extends StatefulWidget {
-
   @override
   State<Splash> createState() => _SplashState();
 }
 
 class _SplashState extends State<Splash> {
-
   @override
   void initState() {
     super.initState();
     _navigateToHome();
   }
 
-  _navigateToHome() async{
+  _navigateToHome() async {
     await Future.delayed(
-        Duration(seconds: 2),
+      const Duration(seconds: 2),
     );
-    Navigator.pushReplacement(context,
-        MaterialPageRoute(builder: (_) => Home()));
+    Navigator.pushReplacement(
+        context, MaterialPageRoute(builder: (_) => Home()));
   } // _navigateToHome
+
   @override
   Widget build(BuildContext context) {
     double w = MediaQuery.of(context).size.width;
@@ -74,7 +73,10 @@ class _SplashState extends State<Splash> {
                               X(
                                 size: 50,
                                 height: 12,
-                                color: const [Color(0XFFFFFFFF), Color(0XFFFFFFFF)],
+                                color: const [
+                                  Color(0XFFFFFFFF),
+                                  Color(0XFFFFFFFF)
+                                ],
                               ),
                             ],
                           ),
@@ -94,7 +96,10 @@ class _SplashState extends State<Splash> {
                               X(
                                 size: 50,
                                 height: 12,
-                                color: const [Color(0XFFFFFFFF), Color(0XFFFFFFFF)],
+                                color: const [
+                                  Color(0XFFFFFFFF),
+                                  Color(0XFFFFFFFF)
+                                ],
                               ),
                               const SizedBox(
                                 width: 14,
@@ -102,7 +107,10 @@ class _SplashState extends State<Splash> {
                               X(
                                 size: 50,
                                 height: 12,
-                                color: const [Color(0XFFFFFFFF), Color(0XFFFFFFFF)],
+                                color: const [
+                                  Color(0XFFFFFFFF),
+                                  Color(0XFFFFFFFF)
+                                ],
                               ),
                             ],
                           ),
@@ -124,7 +132,10 @@ class _SplashState extends State<Splash> {
                               X(
                                 size: 50,
                                 height: 12,
-                                color: const [Color(0XFF0D47A1), Color(0XFF0D47A1)],
+                                color: const [
+                                  Color(0XFF0D47A1),
+                                  Color(0XFF0D47A1)
+                                ],
                               ),
                               const SizedBox(
                                 width: 16,
@@ -159,6 +170,6 @@ class _SplashState extends State<Splash> {
               ),
             ],
           ),
-        )
-    );
-  } } // Splash Class
+        ));
+  }
+} // Splash Class
